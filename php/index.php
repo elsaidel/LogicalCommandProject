@@ -20,8 +20,15 @@
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
 	
+	<!-- Morris Charts CSS -->
+    <link href="vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css"/>
+	
+	<!-- Data table CSS -->
+	<link href="vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+	
+	<link href="vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet" type="text/css">
+		
 	<!-- Custom CSS -->
-	<link href="dist/css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
 	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -849,627 +856,59 @@
 		<!-- Right Sidebar Backdrop -->
 		<div class="right-sidebar-backdrop"></div>
 		<!-- /Right Sidebar Backdrop -->
-        
-		<!-- Main Content -->
+
+        <!-- Main Content -->
 		<div class="page-wrapper">
-            <div class="container-fluid">
-				
-				<!-- Title -->
-				<div class="row heading-bg">
-					<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-						<h5 class="txt-dark">Documentation</h5>
-					</div>
-					<!-- Breadcrumb -->
-					<div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-						<ol class="breadcrumb">
-							<li><a href="index.html">Dashboard</a></li>
-							<li class="active"><span>documentation</span></li>
-						</ol>
-					</div>
-					<!-- /Breadcrumb -->
-				</div>
-				<!-- /Title -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">Inroduction</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="muted">Philbert Admin is a WebApp template for admin dashboards and control panels. It is a responsive HTML template that is based on the CSS framework Bootstrap 3.3.6 It utilizes all of the Bootstrap components in its design and re-styles many commonly used plugins to create a consistent design that can be used as a user interface for backend applications. Philbert Admin is based on a modular design, which allows it to be easily customized and built upon. This documentation will guide you through installing the template and exploring the various components that are bundled with the template.</p>
-									<div class="row mt-30">
-										<div class="col-md-4 col-xs-12">
-											<ul class="list-icons">
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle txt-success mr-5"></i> 7 Different Dashboards</li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Ecommerce Pages Included</li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> 90+ pages </li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> 1000+ fonts </li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> 300+ Ui Components</li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Light,dark, and boxed layout.</li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> toggle left side menu</li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Used Bower A package manager for the web.</li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Used gruntjs (The javascript task runner.)</li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Vector Maps & Google maps included.</li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Powered by Bootstrap Sass.</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i>  CSS3 Animations.</li>
-												
-											</ul>
-										</div>
-										<div class="col-md-4 col-xs-12">
-											<ul class="list-icons">
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Lots of widgets </li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Bootstrap 3x </li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> linea-icon Icons</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Themify Icons</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Simple line Icons</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Pe-icon Icons</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Responsive Layout</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> W3C HTML Valid code</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Multi-Browser Support</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Box & Full-screen layout options</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Dark & Light Demo options.</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Quick setting panel with many cool options.</li>
-											</ul>
-										</div>
-										<div class="col-md-4 col-xs-12">
-											<ul class="list-icons">
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Mobile Responsive Tabs</li>
-												<li  class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Specially Designed Mobile Menu</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Desktop Sidebar Menu</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Tablet Icon Menu</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i>  Multilevel Navigation</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Mega Menu</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Beautiful Profile page</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i> Working Instagram Live Feeds</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i>Thoughtfully designed widgets.</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i>Email App included.</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i>Stunning Chat App included.</li>
-												<li class="mb-10"><i class="zmdi zmdi-caret-right-circle text-success mr-5"></i>Login, Forget Password, Register, lock screen and many more.</li>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">Installation (Install Node.js, Bower, Grunt)</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="mb-20">Use of these tools is completely optional.</p>
-									<ul class="uo-list mt-20 mb-20 pl-15">
-										<li class="mb-10 txt-dark">Node.js and NPM. You can download Node.js from here <a href="https://nodejs.org." target="_blank">https://nodejs.org.</a> Npm comes bundled with Node.js</li>
-										<li class="mb-10 txt-dark">Next you need to install bower.</li>
-										<li class="txt-dark" >At last install grunt using <code>npm install -g grunt-cli</code> and <code>npm install grunt --save-dev</code></li>
-									</ul>
-									<p>After installing all the required frameworks, components and dependencies, go to the root folder of and run the following commands from the command line:</p>
-									<ul class="uo-list mt-20 mb-20 pl-15">
-										<li class="mb-10 txt-dark">npm install</li>
-										<li class="mb-10 txt-dark">bower install</li>
-										<li class="txt-dark" >grunt</li>
-									</ul>
-									<p>If everything was installed correctly, you should see the jQuery version of Philbert running in <strong>http://localhost:9000/</strong></p>
-									<br/>
-									<p>Above all procedures are optional you can directly use the compiled file(dist/) which we provided you.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">File structure</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<pre>
-										  
-										  HTML
-										  ├── 
-										  │   └── Philbert/
-										  │       └── dist
-										  │            └── Distribution pkg(Ready to Use)
-										  │       └── src
-										  │            └── Source pkg
-										  │       └── vendors
-										  │            └── bower_components
-										  │            └── All Required plugins files
-										  │       └── All Html Pages
-										  │       └── .bowerrc
-										  │       └── .bowerrc
-										  │       └── .jshintrc
-										  │       └── bower.json
-										  │       └── package.json
-										  └── 
-										
-									  </pre>
-            					</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">Html structure</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-								  <pre>
-									&lt;body&gt;
+            <div class="container-fluid pt-25">
 
-									<span style="color:#ccc;">&lt;!-- Preloader --&gt;</span>
-									&lt;div class="preloader-it"&gt;
-									&lt;div class="la-anim-1"&gt;&lt;/div&gt;
-									&lt;/div&gt;
-									<span style="color:#ccc;">!-- /Preloader --&gt;</span>
-
-									<span style="color:#ccc;">&lt;!-- Wrapper --&gt;</span>
-									&lt;div id="wrapper"&gt;
-										&lt;!-- Top Menu Items --&gt;
-										&lt;nav class="navbar navbar-inverse navbar-fixed-top"&gt;
-										------
-										&lt;!-- Left Sidebar Menu --&gt;
-										&lt;div class="fixed-sidebar-left"&gt;
-										------
-										
-										&lt;!-- Right Sidebar Menu --&gt;
-										&lt;div class="fixed-sidebar-right"&gt;
-										------
-										
-										&lt;!-- Right Sidebar Backdrop --&gt;
-										&lt;div class="right-sidebar-backdrop"&gt;
-										------
-										
-										&lt;!-- Main Content --&gt;
-										&lt;div class="page-wrapper"&gt;
-											
-											&lt;!-- Title --&gt;
-											&lt;div class="row heading-bg"&gt;
-												------
-												&lt;!-- Breadcrumb --&gt;
-												&lt;div class="col-lg-9 col-sm-8 col-md-8 col-xs-12"&gt;
-													------
-												--content--
-										&lt;!-- Footer --&gt;
-										&lt;footer class="footer container-fluid pl-30 pr-30"&gt;
-									
-										&lt;/body&gt;
-									&lt;/html&gt;
-									</pre>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">For Background Colors</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="mb-20">please use below classes bg colors:</p>
-									<code class="block mb-10">bg-green</code>
-									<code class="block mb-10">bg-blue</code>
-									<code class="block mb-10">bg-red</code>
-									<code class="block mb-10">bg-pink</code>
-									<code class="block mb-10">bg-yellow</code>
-									<code class="block mb-10">bg-light</code>
-									<code class="block mb-10">bg-dark</code>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">For Text Colors</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="mb-20">please use below classes for text colors:</p>
-									<code class="block mb-10">For green use .txt-success</code>
-									<code class="block mb-10">For blue use .txt-primary</code>
-									<code class="block mb-10">For pink use .txt-info</code>
-									<code class="block mb-10">For yellow use .txt-warning</code>
-									<code class="block mb-10">For red use .txt-danger</code>
-									<code class="block mb-10">For white use .txt-light</code>
-									<code class="block mb-10">For black use .txt-dark</code>
-									<code class="block mb-10">For grey use .txt-grey</code>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">scss files</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="muted">main scss file in present in src folder.</p>
-									<div class="table-responsive">  
-										<table class="table table-bordered m-0">
-											<thead>
-											  <tr>
-												<th style="width: 20%;">File</th>
-												<th>Description</th>
-											  </tr>
-											</thead>
-											<tbody>
-											  <tr>
-												<td><code>style.scss</code> </td>
-												<td> you can update main style using this scss file.</td>
-											  </tr>
-											   <tr>
-												<td><code>style-dark.scss</code> </td>
-												<td> you can update main style for dark version using this scss file.</td>
-											  </tr>
-											  <tr>
-												<td><code>_bourbon.scss</code></td>
-												<td> for all styles of bourbon css. </td>
-											  </tr>
-											  <tr>
-												<td><code>mixins.sess</code></td>
-												<td> for  all preset mixins.</td>
-											  </tr>
-											</tbody>
-										  </table>
-										</div>
-									</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">js files</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="muted">custom js file in present in dist/js folder.</p>
-									<div class="table-responsive">  
-										<table class="table table-bordered m-0">
-											<thead>
-											  <tr>
-												<th style="width: 20%;">File</th>
-												<th>Description</th>
-											  </tr>
-											</thead>
-											<tbody>
-											  <tr>
-												<td><code>init.js</code> </td>
-												<td>all custom js required for Philbert.</td>
-											  </tr>
-											  
-											  <tr>
-												<td><code>**-data.scss</code></td>
-												<td>all js with **-data are releted with individual pages.</td>
-											  </tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">How to edit all the files ?</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="muted mb-25">All index files represent that how can you use all the widgets,tables,charts etc. Other html files are created using there original names like dropzone.html, chartist.html etc. You can easily edit them.</p>
-									<p class="muted">all js which are present in dist/js folder with **-data are releted to individual pages. We used nomenclature related to inividual html page like chartjs-data.js for chats.html, bootstrap-wysuhtml5-data.js for bootstrap-wysihtml5.html etc.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">How to edit layout ?</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="muted mb-20">For all the layout you have to add below classes with <code>.wrapper</code> class.</p>
-									<code class="block mb-10">For boxed layout add .box-layout</code>
-									<code class="block mb-10">For dark version use <b class="txt-dark">grunt sass-dark</b></code>
-									<code class="block mb-10">For rtl version use <b class="txt-dark">grunt sass-rtl</b></code>
-									<code class="block mb-10">For rtl version use <b class="txt-dark">grunt sass-rtl-dark</b></code>
-									<code class="block mb-10">For scrollable header add .scrollable-nav</code>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">How to edit theme ?</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="muted mb-20">We provide 6 themes which you can use, you have to add below classes with <code>.wrapper</code> class.</p>
-									<code class="block mb-10">.theme-1-active</code>
-									<code class="block mb-10">.theme-2-active</code>
-									<code class="block mb-10">.theme-3-active</code>
-									<code class="block mb-10">.theme-4-active</code>
-									<code class="block mb-10">.theme-5-active</code>
-									<code class="block">.theme-6-active</code>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">How to edit primary color ?</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="muted mb-20">We provide 8 primary color scheme which you can use, you have to add below classes with <code>.wrapper</code> class.</p>
-									<code class="block mb-10">.pimary-color-red</code>
-									<code class="block mb-10">.pimary-color-blue</code>
-									<code class="block mb-10">.pimary-color-green</code>
-									<code class="block mb-10">.pimary-color-yellow</code>
-									<code class="block mb-10">.pimary-color-pink</code>
-									<code class="block mb-10">.pimary-color-orange</code>
-									<code class="block mb-10">.pimary-color-gold</code>
-									<code class="block">.pimary-color-silver</code>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						 <div class="panel panel-default card-view">
-							<div class="panel-heading">
-								<div class="pull-left">
-									<h6 class="panel-title txt-dark">How to edit Weather app ?</h6>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p class="muted mb-20">We provided working weather app with the help of yahoo API.</p>
-									<p class="muted mb-20">For editing the app first open simpleweather-data.js file,If you want to use weather app with forcast of seven day use</p>
-									<code class="block mb-10">/*With Forcast*/<br>
-									$.simpleWeather({...</code>
-									<p class="muted mb-20">If you want to use weather app withot forcastuse</p>
-									<code class="block mb-10">/*Without Forcast*/<br>
-									$.simpleWeather({...</code>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="panel panel-default card-view">
-							<div class="panel-wrapper collapse in">
-								<div class="panel-body">
-									<p><strong>Note : Images are not included in downloaded version source.</strong></p>
-								</div>
-							</div>
-						</div>
-					</div>		
-				</div>		
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-							<div class="panel panel-default card-view">
-								<div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">credits</h6>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div class="panel-wrapper collapse in">
-									<div class="panel-body">
-										<ul class="common-credits">
-										<li>Bootstrap framework</li>
-										<li><a href="http://getbootstrap.com/">http://getbootstrap.com/</a></li>
-										<li>Jquery</li>
-										<li><a href="https://jquery.com/">https://jquery.com/</a></li>
-										<li>Material Design Iconic Font</li>
-										<li><a href="http://zavoloklom.github.io/material-design-iconic-font/icons.html">http://zavoloklom.github.io/material-design-iconic-font/icons.html</a></li>
-										<li>Font-Awesome</li>
-										<li><a href="http://fortawesome.github.io/Font-Awesome/">http://fortawesome.github.io/Font-Awesome/</a></li>
-										<li>Themify</li>
-										<li><a href="https://themify.me/themify-icons">https://themify.me/themify-icons</a></li>
-										<li>linea-icon</li>
-										<li><a href="http://linea.io/">http://linea.io/</a></li>
-										<li>Simple line icons</li>
-										<li><a href="simplelineicons.com">simplelineicons.com</a></li>
-										
-										<li>Pe-7 icons</li>
-										<li><a href="http://themes-pixeden.com/font-demos/7-stroke/">http://themes-pixeden.com/font-demos/7-stroke/</a></li>
-										
-										<li>Sweet-Alert</li>
-										<li><a href="http://tristanedwards.me/sweetalert">http://tristanedwards.me/sweetalert</a></li>
-										<li>Nestable</li>
-										<li><a href="http://dbushell.com/">http://dbushell.com/</a></li>
-										<li>Slimscroll</li>
-										<li><a href="http://rocha.la/jQuery-slimScroll">http://rocha.la/jQuery-slimScroll</a></li>
-										<li>Full Calendar</li>
-										<li><a href="http://arshaw.com/fullcalendar/">http://arshaw.com/fullcalendar/</a></li>
-										
-										<li>Bootstrap-timepicker</li>
-										<li><a href="http://jdewit.github.com/bootstrap-timepicker">http://jdewit.github.com/bootstrap-timepicker</a></li>
-										<li>Bootstrap Colorpicker</li>
-										<li><a href="http://www.eyecon.ro/bootstrap-colorpicker">http://www.eyecon.ro/bootstrap-colorpicker</a></li>
-										<li>Multi-select</li>
-										<li><a href="http://loudev.com/">http://loudev.com/</a></li>
-										<li>Select2</li>
-										<li><a href="https://select2.github.io/">https://select2.github.io/</a></li>
-										<li>Wysihtml5</li>
-										<li><a href="https://github.com/xing/wysihtml5">https://github.com/xing/wysihtml5</a></li>
-										<li>Datatables</li>
-										<li><a href="https://www.datatables.net/">https://www.datatables.net/</a></li>
-										<li>Jsgrid</li>
-										<li><a href="http://js-grid.com/">http://js-grid.com/</a></li>
-										<li>Morris</li>
-										<li><a href="http://morrisjs.github.io/morris.js/">http://morrisjs.github.io/morris.js/</a></li>
-										<li>Chartjs</li>
-										<li><a href="http://chartjs.org/">http://chartjs.org/</a></li>
-										<li>Sparkline</li>
-										<li><a href="http://omnipotent.net/jquery.sparkline/">http://omnipotent.net/jquery.sparkline/</a>
-										</li>
-										<li>Google maps</li>
-										<li><a href="https://hpneo.github.io/gmaps/">https://hpneo.github.io/gmaps/</a></li>
-										<li>Vector Maps</li>
-										<li><a href="http://jqvmap.com/">http://jqvmap.com/</a></li>
-										<li>Pexels (images)</li>
-										<li><a href="https://pexels.com/">https://pexels.com/</a></li>
-										<li>Flot-charts</li>
-										<li><a href="http://www.flotcharts.org/">http://www.flotcharts.org/</a></li>
-										<li>Owl carousel</li>
-										<li><a href="http://owlgraphic.com/owlcarousel/"> http://owlgraphic.com/owlcarousel/</a></li>
-										<li>Switchery</li>
-										<li><a href="https://github.com/abpetkov/switchery"> https://github.com/abpetkov/switchery</a></li>
-										<li>Bootstrap select</li>
-										<li><a href="https://github.com/silviomoreto/bootstrap-select"> https://github.com/silviomoreto/bootstrap-select</a></li>
-										<li>Wysiwig Editor</li>
-										<li><a href="http://www.tinymce.com/">http://www.tinymce.com/</a></li>
-										<li>Chartist chart</li>
-										<li><a href="https://gionkunz.github.io/chartist-js/"> https://gionkunz.github.io/chartist-js/</a></li>
-									  </ul>
-            
-									</div>
-								</div>
-							</div>
-					</div>
-				</div>
-				<!-- /Row -->
-				
-				<!-- Row -->
-				<div class="row">
-					<div class="col-sm-12">
-							<div class="panel panel-default card-view">
-								<div class="panel-heading">
-									<div class="pull-left">
-										<h6 class="panel-title txt-dark">Support</h6>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-								<div class="panel-wrapper collapse in">
-									<div class="panel-body">
-										<p class="muted">If you have any questions that aren’t covered in this article, please mail us at <a href="mailto:contact@hencework.com">contact@hencework.com</a></p>
-									</div>
-								</div>
-							</div>
-					</div>
-				</div>				
-				<!-- /Row -->
+			<!-- Insert Map of google -->
+			<div id="map" ></div>
 			</div>
-			<!-- /Row -->
-			
+  <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+      var map, infoWindow;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 6
+        });
+        infoWindow = new google.maps.InfoWindow;
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Location found.');
+            infoWindow.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, infoWindow, map.getCenter());
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        infoWindow.open(map);
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE_oxp4b6xtxSd0Qy23v7LDCycJqvWhkM&callback=initMap">
+    </script>
 			<!-- Footer -->
 			<footer class="footer container-fluid pl-30 pr-30">
 				<div class="row">
@@ -1494,25 +933,48 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     
-	<!-- Owl JavaScript -->
-	<script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
-		
 	<!-- Data table JavaScript -->
 	<script src="vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-	<script src="dist/js/dataTables-data.js"></script>
 	
 	<!-- Slimscroll JavaScript -->
 	<script src="dist/js/jquery.slimscroll.js"></script>
 	
-	<!-- Switchery JavaScript -->
-	<script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
+	<!-- simpleWeather JavaScript -->
+	<script src="vendors/bower_components/moment/min/moment.min.js"></script>
+	<script src="vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js"></script>
+	<script src="dist/js/simpleweather-data.js"></script>
+	
+	<!-- Progressbar Animation JavaScript -->
+	<script src="vendors/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+	<script src="vendors/bower_components/jquery.counterup/jquery.counterup.min.js"></script>
 	
 	<!-- Fancy Dropdown JS -->
 	<script src="dist/js/dropdown-bootstrap-extended.js"></script>
 	
+	<!-- Sparkline JavaScript -->
+	<script src="vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
+	
+	<!-- Owl JavaScript -->
+	<script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+	
+	<!-- ChartJS JavaScript -->
+	<script src="vendors/chart.js/Chart.min.js"></script>
+	
+	<!-- Morris Charts JavaScript -->
+    <script src="vendors/bower_components/raphael/raphael.min.js"></script>
+    <script src="vendors/bower_components/morris.js/morris.min.js"></script>
+    <script src="vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+	
+	<!-- Piety JavaScript -->
+	<script src="vendors/bower_components/peity/jquery.peity.min.js"></script>
+	<script src="dist/js/peity-data.js"></script>
+	
+	<!-- Switchery JavaScript -->
+	<script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
+	
 	<!-- Init JavaScript -->
 	<script src="dist/js/init.js"></script>
-	
+	<script src="dist/js/dashboard6-data.js"></script>
 </body>
 
 </html>
