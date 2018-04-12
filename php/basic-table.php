@@ -898,6 +898,13 @@
                                         <input type="text" name="UserName" class="form-control" id="recipient-name" type="text" maxlength="50" class="form-control" required pattern="[a-zA-Z0-9\s]+" placeholder="Alphanumeric characters only">
                                       </div>
                                        <div class="form-group">
+                                        <label for="recipient-role" class="control-label">Role</label>
+                                        <select class="form-control">
+                                      <option value="technician">Technician</option>
+                                      <option value="supervisor">Supervisor</option>
+                                    </select>
+                                      </div>
+                                       <div class="form-group">
                                         <label for="recipient-password" class="control-label">Password</label>
                                         <input type="text" name="password" class="form-control" id="recipient-password" type="text" maxlength="50" class="form-control">
                                       </div>
@@ -915,14 +922,43 @@
                                     </form>
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                    <i class="fa fa-check"></i>
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                    <i class="fa fa-remove"></i>
-                                  </div>
+                                  <button type="button" class="btn btn-info" data-dismiss="modal" style="background-color: #5bc0de; border-color: #46b8da;">
+                                      <span class="glyphicon glyphicon-remove"></span> Cancel
+                                    </button>
+                                    <button type="button" class="btn btn-info" name="save" style="background-color: #254eda; border-color: #2B51E8;">
+                                      <span class="glyphicon glyphicon-ok"></span> Save
+                                    </button>
+                                   </div>
                                 </div>
                               </div>
                             </div>
+                            
+                            <?php
+                                  $conn = new mysqli('localhost', 'root', '', 'logicalcommander');
+                                // Check connection
+                                if ($conn->connect_error) {
+                                    die("Connection failed: " . $conn->connect_error);
+                                } 
+                                
+                                if(isset($_POST['save'])){
+                                    $sql = "INSERT INTO users (username, password, email)
+                                    VALUES ('".$_POST["username"]."','".$_POST["password"]."','".$_POST["email"]."')";
+                                }
+                                
+                                $date = date('Y-m-d H:i:s');
+                                mysql_query("INSERT INTO `table` (`dateposted`) VALUES ('$date')");
+                                $sql = "INSERT INTO tblusers (UserName, Password, CreationDate, IsActive)
+                                VALUES ('John', 'Doe', 'john@example.com')";
+                                
+                                if ($conn->query($sql) === TRUE) {
+                                    echo "New record created successfully";
+                                } else {
+                                    echo "Error: " . $sql . "<br>" . $conn->error;
+                                }
+                                
+                                $conn->close();
+                                ?>
+
 							<div class="panel-wrapper collapse in">
 								<div class="panel-body">
 									<div class="table-wrap mt-40">
