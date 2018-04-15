@@ -11,7 +11,7 @@
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="favicon.ico">
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	
+	<link href="bootstrap-sortable.css" rel="stylesheet" type="text/css">
 	<!-- Morris Charts CSS -->
     <link href="vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css"/>
 	
@@ -892,84 +892,62 @@
                                     <h4 class="modal-title" id="exampleModalLabel">Add New User</h4>
                                   </div>
                                   <div class="modal-body">
-                                    <form>
+                                    <form method="post" action="basic-table.php">
                                       <div class="form-group">
                                         <label for="recipient-name" class="control-label">User Name</label>
                                         <input type="text" name="UserName" class="form-control" id="recipient-name" type="text" maxlength="50" class="form-control" required pattern="[a-zA-Z0-9\s]+" placeholder="Alphanumeric characters only">
                                       </div>
                                        <div class="form-group">
                                         <label for="recipient-role" class="control-label">Role</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name="role">
                                       <option value="technician">Technician</option>
                                       <option value="supervisor">Supervisor</option>
                                     </select>
                                       </div>
                                        <div class="form-group">
                                         <label for="recipient-password" class="control-label">Password</label>
-                                        <input type="text" name="password" class="form-control" id="recipient-password" type="text" maxlength="50" class="form-control">
+                                        <input type="text" name="Password" class="form-control" id="recipient-password" type="text" maxlength="50" class="form-control">
                                       </div>
-                                      <div class="form-group">
-                                        <label for="recipient-password" class="control-label">Confirm Password</label>
-                                        <input type="text" name="password" class="form-control" id="recipient-password" type="text" maxlength="50" class="form-control">
-                                      </div>
+<!--                                       <div class="form-group"> -->
+<!--                                         <label for="recipient-password" class="control-label">Confirm Password</label> -->
+<!--                                         <input type="text" name="password" class="form-control" id="recipient-password" type="text" maxlength="50" class="form-control"> -->
+<!--                                       </div> -->
                                       <div class="form-group">
                                         <label for="recipient-active" class="control-label">Is Active</label>
-                                        <select class="form-control">
-                                      <option value="yes">Yes</option>
-                                      <option value="no">No</option>
+                                        <select class="form-control" name="active">
+                                      <option value="1">Yes</option>
+                                      <option value="0">No</option>
                                     </select>
-                                      </div>
-                                    </form>
-                                  </div>
+                                      </div> 
                                   <div class="modal-footer">
                                   <button type="button" class="btn btn-info" data-dismiss="modal" style="background-color: #5bc0de; border-color: #46b8da;">
                                       <span class="glyphicon glyphicon-remove"></span> Cancel
                                     </button>
-                                    <button type="button" class="btn btn-info" name="save" style="background-color: #254eda; border-color: #2B51E8;">
+                                    <button type="submit" value="Submit" class="btn btn-info" name="submit" style="background-color: #254eda; border-color: #2B51E8;">
                                       <span class="glyphicon glyphicon-ok"></span> Save
                                     </button>
+                                    </div>	                  
+                                     </form>
                                    </div>
                                 </div>
                               </div>
-                            </div>
-                            
-                            <?php
-                                  $conn = new mysqli('localhost', 'root', '', 'logicalcommander');
-                                // Check connection
-                                if ($conn->connect_error) {
-                                    die("Connection failed: " . $conn->connect_error);
-                                } 
-                                
-                                if(isset($_POST['save'])){
-                                    $sql = "INSERT INTO users (username, password, email)
-                                    VALUES ('".$_POST["username"]."','".$_POST["password"]."','".$_POST["email"]."')";
-                                }
-                                
-                                $date = date('Y-m-d H:i:s');
-                                mysql_query("INSERT INTO `table` (`dateposted`) VALUES ('$date')");
-                                $sql = "INSERT INTO tblusers (UserName, Password, CreationDate, IsActive)
-                                VALUES ('John', 'Doe', 'john@example.com')";
-                                
-                                if ($conn->query($sql) === TRUE) {
-                                    echo "New record created successfully";
-                                } else {
-                                    echo "Error: " . $sql . "<br>" . $conn->error;
-                                }
-                                
-                                $conn->close();
-                                ?>
-
+                               
+ 						</div>                           
 							<div class="panel-wrapper collapse in">
+							
 								<div class="panel-body">
 									<div class="table-wrap mt-40">
+									
 										<div class="table-responsive">
-											<table class="table mb-0">
+										
+											<table class="table mb-0 sortable">
+											<thead>
 					                            <tr>
-                                                        <td>UserID</td>
-                                                        <td>UserName</td> 
-                                                        <td>CreationDate</td>
-                                                        <td>LastLogin</td>
-                                                        <td>IsActive</td>
+                                                        <td>User ID</td>
+                                                        <td>User Name</td> 
+                                                        <td>Creation Date</td>
+                                                        <td>Last Login</td>
+                                                        <td>Is Active</td>
                                                     </tr>
                                                 </thead>
 											 <tbody>
@@ -989,6 +967,7 @@
                                     </tr>
                                 ';
                             }
+                            
                         ?>
                     </tbody>
                 </table>
@@ -996,7 +975,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						
 					</div>
 					<!-- /Basic Table -->
 				</div>	
@@ -1047,7 +1026,38 @@
 	
 	<!-- Init JavaScript -->
 	<script src="dist/js/init.js"></script>
-	
+	   <?php
+                            if(isset($_POST["submit"])){
+                                try{
+                                    $pdo = new PDO("mysql:host=localhost;dbname=logicalcommander", "root", "");
+                                    // Set the PDO error mode to exception
+                                    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                                } catch(PDOException $e){
+                                    die("ERROR: Could not connect. " . $e->getMessage());
+                                }
+                                
+                                // Attempt insert query execution
+                                try{
+                                    $date = date('Y-m-d H:i:s');
+                                    // create prepared statement
+                                    $sql = "INSERT INTO tblusers (UserName, Password) VALUES (:username, :password)";
+                                    $stmt = $pdo->prepare($sql);
+                                    
+                                    // bind parameters to statement
+                                    $stmt->bindParam(':username', $_REQUEST['UserName']);
+                                    $stmt->bindParam(':password', $_REQUEST['Password']);
+                                    
+                                    // execute the prepared statement
+                                    $stmt->execute();
+                                    echo "Records inserted successfully.";
+                                } catch(PDOException $e){
+                                    die("ERROR: Could not able to execute $sql. " . $e->getMessage());
+                                }
+                                
+                                // Close connection
+                                unset($pdo);
+                            }
+                            ?>
 </body>
 
 </html>
