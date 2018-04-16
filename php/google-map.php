@@ -409,6 +409,9 @@
 						<li>
 							<a href="google-map.php">Google Map</a>
 						</li>
+						<li>
+							<a href="map-selector.php">Scribble Map</a>
+						</li>
 					</ul>
 				</li>
 				<li>
@@ -934,7 +937,7 @@
 							</div>
 						</div>
 					</div>
-					<!-- /Row -->
+					<!-- /Row -->				
 				</div>
 				
 				<!-- Footer -->

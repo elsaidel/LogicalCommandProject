@@ -409,6 +409,9 @@
 						<li>
 							<a href="google-map.php">Google Map</a>
 						</li>
+						<li>
+							<a href="map-selector.php">Scribble Map</a>
+						</li>
 					</ul>
 				</li>
 				<li>
@@ -864,51 +867,45 @@
 			<!-- Insert Map of google -->
 			<div id="map" ></div>
 			</div>
-  <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
-        });
-        infoWindow = new google.maps.InfoWindow;
+   <script>
+      // This example requires the Drawing library. Include the libraries=drawing
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=drawing">
 
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+     function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+  });
 
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
+  var drawingManager = new google.maps.drawing.DrawingManager({
+    drawingMode: google.maps.drawing.OverlayType.MARKER,
+    drawingControl: true,
+    drawingControlOptions: {
+      position: google.maps.ControlPosition.TOP_CENTER,
+      drawingModes: ['marker', 'circle', 'polygon', 'polyline', 'rectangle']
+    },
+    markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
+    circleOptions: {
+      fillColor: '#ffff00',
+      fillOpacity: 1,
+      strokeWeight: 5,
+      clickable: false,
+      editable: true,
+      zIndex: 1
+    }
+  });
+  drawingManager.setOptions({
+	  drawingControl: true
+	})
+  drawingManager.setMap(map);
+}
     </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE_oxp4b6xtxSd0Qy23v7LDCycJqvWhkM&callback=initMap">
-    </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE_oxp4b6xtxSd0Qy23v7LDCycJqvWhkM&libraries=drawing&callback=initMap"
+         async defer></script>
+<!--     <script async defer -->
+<!--     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE_oxp4b6xtxSd0Qy23v7LDCycJqvWhkM&callback=initMap"> -->
+ <!--    </script>
 			<!-- Footer -->
 			<footer class="footer container-fluid pl-30 pr-30">
 				<div class="row">
