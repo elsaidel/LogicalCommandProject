@@ -7395,3 +7395,26 @@ ul.inbox-nav li a:hover, ul.inbox-nav li.active a, ul.inbox-nav li a:focus {
     margin-bottom: 20px; } }
 
 /*# sourceMappingURL=style.css.map */
+
+/*Table*/
+
+.btn.btn-outline.red {
+    border-color: #e7505a;
+    color: #e7505a;
+    background: none;
+    padding: 18px;
+}
+
+#dataTable_length {
+	position: relative;
+    top: 28px;
+    left: 1px;
+	
+}
+
+#dataTable_filter{
+	position: relative;
+    top: 15px;
+    left: 520px;
+	
+}
