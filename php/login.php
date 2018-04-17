@@ -52,25 +52,18 @@
 											<h6 class="text-center nonecase-font txt-grey">Enter your details below</h6>
 										</div>	
 										<div class="form-wrap">
-											<form action="#">
+											<form class="form-horizontal" action="login.php" method="post">
 												<div class="form-group">
-													<label class="control-label mb-10" for="exampleInputEmail_2">Email address</label>
-													<input type="email" class="form-control" required="" id="exampleInputEmail_2" placeholder="Enter email">
+													<label class="control-label mb-10" for="exampleInputEmail_2">User</label>
+													<input type="text" class="form-control" name="username" id="userId" placeholder="Enter user">
 												</div>
 												<div class="form-group">
 													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Password</label>
 													<div class="clearfix"></div>
-													<input type="password" class="form-control" required="" id="exampleInputpwd_2" placeholder="Enter pwd">
-												</div>
-												
-												<div class="form-group">
-													<div class="checkbox checkbox-primary pr-10 pull-left">
-														<input id="checkbox_2" required="" type="checkbox">
-													</div>
-													<div class="clearfix"></div>
+													<input type="password" class="form-control" name="password" id="passId" placeholder="Enter Password">
 												</div>
 												<div class="form-group text-center">
-													<button type="submit" class="btn btn-info btn-success btn-rounded">sign in</button>
+													<button type="submit" name="submitBtnLogin" class="btn btn-info btn-success btn-rounded">sign in</button>
 												</div>
 											</form>
 										</div>
@@ -110,5 +103,55 @@
 		
 		<!-- Init JavaScript -->
 		<script src="dist/js/init.js"></script>
+		
+		<!-- login JavaScript -->
+		<script src="dist/js/login.js"></script>
+		
+           <?php  
+             session_start();  
+             $host = "localhost";  
+             $username = "root";  
+             $password = "";  
+             $database = "logicalcommander";  
+             $message = "";  
+             try  
+             {  
+                  $connect = new PDO("mysql:host=$host; dbname=$database", $username, $password);  
+                  $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+                  if(isset($_POST["submitBtnLogin"]))  
+                  {  
+                       if(empty($_POST["username"]) || empty($_POST["password"]))  
+                       {  
+                            $message = '<label>All fields are required</label>';  
+                       }  
+                       else  
+                       {  
+                            $query = "SELECT * FROM tblusers WHERE UserName = :username AND Password = :password";  
+                            $statement = $connect->prepare($query);  
+                            $statement->execute(  
+                                 array(  
+                                      'username'     =>     $_POST["username"],  
+                                      'password'     =>     $_POST["password"]  
+                                 )  
+                            );  
+                            $count = $statement->rowCount();  
+                            if($count > 0)  
+                            {  
+                                 $_SESSION["username"] = $_POST["username"];  
+                                 header("location:index.php");  
+                            }  
+                            else  
+                            {  
+                                 $message = '<label>Wrong Data</label>';  
+                            }  
+                       }  
+                  }  
+             }  
+             catch(PDOException $error)  
+             {  
+                  $message = $error->getMessage();  
+             }  
+             ?> 
+
 	</body>
 </html>

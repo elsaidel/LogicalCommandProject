@@ -963,7 +963,16 @@
 
                             $sql = $conn->query('SELECT * FROM tblusers');
                             while($data = $sql->fetch_array()) {
-                                                           
+                                if($data['IsActive']=="1")
+                                    
+                                {
+                                    $newData = "Yes";
+                                }
+                                   else
+                                   {
+                                       $newData = "No";
+                                   }
+                                
                                 echo '
                                     <tr>
                                         <td><input type="checkbox" id="'.$data['UserID'].'" class="group-checkable" data-set="#dataTable .checkboxes"></td>
@@ -972,7 +981,7 @@
                                         <td>'.$data['Role'].'</td>
                                         <td>'.$data['CreationDate'].'</td>
                                         <td>'.$data['LastLogin'].'</td>
-                                        <td>'.$data['IsActive'].'</td>
+                                        <td>'.$newData.'</td>
                                     </tr>
                                 ';
                             }
