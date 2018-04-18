@@ -15,6 +15,13 @@
 	<!-- Custom CSS -->
 	<link href="dist/css/perfect-scrollbar.min.css" rel="stylesheet" type="text/css">
 	<link href="dist/css/style.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+	
+	.dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+    padding-top: 76px !important;
+  
+}
+	</style>
 </head>
 
 <body>
@@ -1365,10 +1372,57 @@
 			</div>
 			
 			<!-- Footer -->
-			<footer class="footer container-fluid pl-30 pr-30">
+			
+			<script type="text/javascript">
+
+			function getUserIP(onNewIP) { //  onNewIp - your listener function for new IPs
+			    //compatibility for firefox and chrome
+			    var myPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+			    var pc = new myPeerConnection({
+			        iceServers: []
+			    }),
+			    noop = function() {},
+			    localIPs = {},
+			    ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g,
+			    key;
+
+			    function iterateIP(ip) {
+			        if (!localIPs[ip]) onNewIP(ip);
+			        localIPs[ip] = true;
+			    }
+
+			     //create a bogus data channel
+			    pc.createDataChannel("");
+
+			    // create offer and set local description
+			    pc.createOffer(function(sdp) {
+			        sdp.sdp.split('\n').forEach(function(line) {
+			            if (line.indexOf('candidate') < 0) return;
+			            line.match(ipRegex).forEach(iterateIP);
+			        });
+			        
+			        pc.setLocalDescription(sdp, noop, noop);
+			    }, noop); 
+
+			    //listen for candidate events
+			    pc.onicecandidate = function(ice) {
+			        if (!ice || !ice.candidate || !ice.candidate.candidate || !ice.candidate.candidate.match(ipRegex)) return;
+			        ice.candidate.candidate.match(ipRegex).forEach(iterateIP);
+			    };
+			}
+
+			// Usage
+
+			getUserIP(function(ip){
+					document.getElementById("ip").innerHTML = 'Got your IP ! : '  + ip;
+			});
+
+			</script>
+			<p id="ip"></p>
+			<footer class="footer container-fluid pl-30 pr-30">	
 				<div class="row">
 					<div class="col-sm-12">
-						<p>2017 &copy; Philbert. Pampered by Hencework</p>
+						<p>2018 &copy; Logical Command</p>
 					</div>
 				</div>
 			</footer>
@@ -1415,7 +1469,25 @@
 	
 	<!-- Init JavaScript -->
 	<script src="dist/js/init.js"></script>
+	<?php 
+	function getRealIpAddr()
+	{
+	    if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+	    {
+	        $ip=$_SERVER['HTTP_CLIENT_IP'];
+	    }
+	    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+	    {
+	        $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+	    }
+	    else
+	    {
+	        $ip=$_SERVER['REMOTE_ADDR'];
+	    }
+	    return $ip;
+	}
 	
+	?>
 </body>
 
 </html>

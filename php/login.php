@@ -55,12 +55,12 @@
 											<form class="form-horizontal" action="login.php" method="post">
 												<div class="form-group">
 													<label class="control-label mb-10" for="exampleInputEmail_2">User</label>
-													<input type="text" class="form-control" name="username" id="userId" placeholder="Enter user">
+													<input type="text" class="form-control" name="username" id="userId" placeholder="Enter user" required>
 												</div>
 												<div class="form-group">
 													<label class="pull-left control-label mb-10" for="exampleInputpwd_2">Password</label>
 													<div class="clearfix"></div>
-													<input type="password" class="form-control" name="password" id="passId" placeholder="Enter Password">
+													<input type="password" class="form-control" name="password" id="passId" placeholder="Enter Password" required>
 												</div>
 												<div class="form-group text-center">
 													<button type="submit" name="submitBtnLogin" class="btn btn-info btn-success btn-rounded">sign in</button>
@@ -133,11 +133,16 @@
                                       'username'     =>     $_POST["username"],  
                                       'password'     =>     $_POST["password"]  
                                  )  
+                                
+//                                 $query = "UPDATE tblusers SET LastLogin=NONW() WHERE UserName = username";
+//                                 $stmt = $pdo->prepare($query);
+//                                 $stmt->execute();
+                                
                             );  
                             $count = $statement->rowCount();  
                             if($count > 0)  
                             {  
-                                 $_SESSION["username"] = $_POST["username"];  
+                                $_SESSION["username"] = $_POST["username"];  
                                  header("location:index.php");  
                             }  
                             else  
