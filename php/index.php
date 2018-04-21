@@ -33,19 +33,19 @@
 </head>
 
 <body>
-        <?php
-          session_start();
-           
-          // Controlo si el usuario ya está logueado en el sistema.
-          if(isset($_SESSION['user'])){
-            // Le doy la bienvenida al usuario.
-            echo 'Bienvenido <strong>' . $_SESSION['user'] . '</strong>, <a href="cerrar-sesion.php">cerrar sesión</a>';
-          }else{
-            // Si no está logueado lo redireccion a la página de login.
-            header("HTTP/1.1 302 Moved Temporarily");
-            header("Location: login.php");
-          }
-        ?>
+       <?php  
+ //login_success.php  
+ session_start();  
+ if(isset($_SESSION["username"]))  
+ {  
+      echo '<h3>Login Success, Welcome - '.$_SESSION["username"].'</h3>';  
+      echo '<br /><br /><a href="logout.php">Logout</a>';  
+ }  
+ else  
+ {  
+      header("location:pdo_login.php");  
+ }  
+ ?>  
 	<!-- Preloader -->
 	<div class="preloader-it">
 		<div class="la-anim-1"></div>

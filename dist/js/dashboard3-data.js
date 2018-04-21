@@ -148,7 +148,7 @@ $(document).ready(function(){
 $(window).load(function(){
 	window.setTimeout(function(){
 		$.toast({
-			heading: 'Welcome to Philbert',
+			heading: 'Welcome to Peter',
 			text: 'Use the predefined ones, or specify a custom position object.',
 			position: 'top-right',
 			loaderBg:'#f0c541',

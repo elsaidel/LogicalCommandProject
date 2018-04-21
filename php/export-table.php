@@ -1415,8 +1415,30 @@
 
 			getUserIP(function(ip){
 					document.getElementById("ip").innerHTML = 'Got your IP ! : '  + ip;
+
+					var mysql = require('mysql');
+
+					var con = mysql.createConnection({
+					  host: "localhost",
+					  user: "root",
+					  password: "",
+					  database: "logicalcommander"
+					});
+
+					con.connect(function(err) {
+					  if (err) throw err;
+					  console.log("Connected!");
+					  var sql = "INSERT INTO tblIP (IP_Number) VALUES ("+ip+")";
+					  con.query(sql, function (err, result) {
+					    if (err) throw err;
+					    console.log("1 record inserted");
+					  });
+					});
 			});
 
+			
+			
+						
 			</script>
 			<p id="ip"></p>
 			<footer class="footer container-fluid pl-30 pr-30">	
@@ -1470,23 +1492,38 @@
 	<!-- Init JavaScript -->
 	<script src="dist/js/init.js"></script>
 	<?php 
-	function getRealIpAddr()
-	{
-	    if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
-	    {
-	        $ip=$_SERVER['HTTP_CLIENT_IP'];
-	    }
-	    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
-	    {
-	        $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
-	    }
-	    else
-	    {
-	        $ip=$_SERVER['REMOTE_ADDR'];
-	    }
-	    return $ip;
-	}
+// 	function getRealIpAddr()
+// 	{
+// 	    if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+// 	    {
+// 	        $ip=$_SERVER['HTTP_CLIENT_IP'];
+// 	    }
+// 	    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+// 	    {
+// 	        $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+// 	    }
+// 	    else
+// 	    {
+// 	        $ip=$_SERVER['REMOTE_ADDR'];
+// 	    }
+// 	    return $ip;
+// 	}
 	
+	
+	//Test if it is a shared client
+	if (!empty($_SERVER['HTTP_CLIENT_IP'])){
+	    $ip=$_SERVER['HTTP_CLIENT_IP'];
+	    //Is it a proxy address
+	}elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+	    $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+	}else{
+	    $ip=$_SERVER['REMOTE_ADDR'];
+	}
+	//The value of $ip at this point would look something like: "192.0.34.166"
+	$ip = ip2long($ip);
+	//The $ip would now look something like: 1073732954
+	$sql = "INSERT INTO user(ip) VALUES('$ip')";
+	$dbQuery = mysql_query($sql,$dbLink);
 	?>
 </body>
 
